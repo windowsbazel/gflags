@@ -47,7 +47,8 @@ def gflags_sources(namespace=["google", "gflags"]):
         "src/gflags_completions.cc",
         "src/gflags_reporting.cc",
         "src/mutex.h",
-        "src/util.h"
+        "src/util.h",
+        "src/windows_port.h"
     ]
     return [hdrs, srcs]
 
@@ -65,10 +66,11 @@ def gflags_library(hdrs=[], srcs=[], threads=1):
         "-DHAVE_INTTYPES_H",
         "-DHAVE_SYS_STAT_H",
         "-DHAVE_UNISTD_H",
-        "-DHAVE_FNMATCH_H",
+        #"-DHAVE_FNMATCH_H",
         "-DHAVE_STRTOLL",
         "-DHAVE_STRTOQ",
-        "-DHAVE_PTHREAD",
+        #"-DHAVE_PTHREAD",
+        "-DOS_WINDOWS",
         "-DHAVE_RWLOCK",
     ]
     linkopts = []
